@@ -31,6 +31,9 @@ layout: default
           <a class="post-link" href="{{ post.url | relative_url }}">
             {{ post.title | escape }}
           </a>
+          <small>
+            {{ post.tags | array_to_sentence_string }}
+          </small>
         </h3>
         {%- if site.show_excerpts -%}
           {{ post.excerpt }}
