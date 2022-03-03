@@ -35,7 +35,7 @@ theme: minima
 minima:
   skin: classic
 post_order: reverse
-links_to_prev_next: true
+links_to_prev_next: false
 # Google Analytics
 google_analytics: G-T7NMXQM7JE
 plugins:
@@ -49,7 +49,7 @@ plugins:
   - jekyll/tagging
   - jekyll-tagging-related_posts
 
-paginate: 10
+#paginate: 10
 
 # Exclude from processing.
 # The following items will not be processed, by default.
