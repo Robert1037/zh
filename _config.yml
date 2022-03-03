@@ -24,8 +24,8 @@ author:
   email: contact-me@rbtblog.com
 #description: >- # this means to ignore newlines until "baseurl:"
   
-baseurl: "" # the subpath of your site, e.g. /blog
-url: https://rbtblog.com/zh # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/zh" # the subpath of your site, e.g. /blog
+url: https://rbtblog.com # the base hostname & protocol for your site, e.g. http://example.com
 #github_username:  Robert1037
 
 # Build settings
