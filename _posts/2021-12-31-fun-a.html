@@ -1,0 +1,601 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>大学摸鱼报告_甲</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><p>&nbsp;</p><h2 id='前言'><span>前言</span></h2><p><span>人生之路就像长长的铁路，有两条铁轨，一条是“生活”，一条是“事业”。“生活”是要满足自身作为人的各种生理、心理、精神、情感的需求，包含着“七情六欲”。人在生活中是消费者，接受着来自外界的物质、信息的供养，使自身生存、成长，使精神快乐、幸福，或者安定、平和。生存是生活的真子集，生活是生存的超集，人满足了生存的基本需求后，就会开始追求更高质量的生活。“事业”则是需要人奉献自己的劳动。因为用以供养生活的事物不会凭空而来，需要消耗人的体力和脑力，用劳动创造财富，在现代社会则对应成年人需要在社会参加工作以获得养活自己和家人的薪酬，对未成年人或在读大学生来说则是“学业”，最终而言只有完成学业才有机会找到工作。因此在“事业”中，人就是生产者，为自己、为社会其他人创造广义上的财富，最终使自己和其他人的生活更美好，此即个人理解的广义的“为人民服务”。“生活”与“事业”如此组成了人生的两条铁轨，相辅相成，互相补给。生活需要事业的收入来支撑，事业也需要生活来给人滋润、调剂以恢复元气，更好地发展事业。</span></p><p><span>在大学中，“事业”对应学生的学业，我们需要动用体力和脑力完成学业，为将来的工作或科研做准备，那么对于大部分普通学生来说，恐怕都不能做到除了吃饭睡觉就是全身心投入地学习，我们总需要在课余、饭后、睡前、周末的时间里增加一些自己感兴趣的娱乐，以缓解学业的压力，放松心情，调节情绪。娱乐的方式可以有例如听音乐、看番看剧看电影、看小说、与别人聊天、打游戏、运动、陪对象等等。而我现在回想大学至今两年半的“娱乐史”，或者对应题目说“摸鱼史”，发现我的“摸鱼”历程有着一定的规律，甚至有条“主线”，因此本文想把这条主线理一理，得到一些有用又无用的启发。</span></p><h3 id='本篇目录'><em><span>本篇目录</span></em></h3><h4 id='-前言'><a href='#前言'><span>-前言</span></a></h4><h4 id='-jojo的奇妙冒险'><a href='#jojo的奇妙冒险'><span>-《JOJO的奇妙冒险》</span></a></h4><h4 id='-名侦探柯南'><a href='#名侦探柯南'><span>-《名侦探柯南》</span></a></h4><h4 id='-青山刚昌短篇集'><a href='#青山刚昌短篇集'><span>-《青山刚昌短篇集》</span></a></h4><h4 id='-仓木麻衣'><a href='#仓木麻衣'><span>-仓木麻衣</span></a></h4><h4 id='-坂井泉水'><a href='#坂井泉水'><span>-坂井泉水</span></a></h4><h4 id='-bz'><a href='#bz'><span>-B&#39;z</span></a></h4><h2 id='jojo的奇妙冒险'><span>《JOJO的奇妙冒险》</span></h2><p><em><span>漫改史诗大作</span></em></p><p><img src="/img/jojo.webp" referrerpolicy="no-referrer"></p><p><span>2019年秋季，我的一位好朋友的微信头像是一个动漫角色，他有几次和我聊天说他最喜欢这个角色，以及最喜欢的技能是“咂瓦鲁多”，意思是“时停”，这角色来自于日本动漫《JOJO的奇妙冒险》。有几次我逛B站也被推送了些JOJO梗的视频，这再次引起了我的兴趣。于是某一天，好奇心驱使我尝试看下</span><a href='https://www.bilibili.com/bangumi/play/ep292950'><span>JOJO第一季的第一集</span></a><span>。这是我第一次看日语原声配音的动漫，在此之前，童年看的柯南、一休、小新等等日漫都是普通话配音，而初中高中时我又对某些同学所沉迷的少女番感到讨厌，加之一直以来我看的影视作品无非普通话、粤语、英语三种对白语言。这时眼前的英国人角色都在说我一点也听不懂的日语，而不是英语，让我感到很违和而又新奇。但是第一集开幕的弹幕“万恶之源”、“梦开始的地方”、“恭喜发现史诗级宝藏”又让我有了看下去的好奇心和信心。看完第一集后没想到这剧情就如此紧凑而精彩！令我非常想看后续情节，但是第二集开始就需要大会员了，于是我又看后面几季那不用大会员的第一集。把免费的第一集都看完后，觉得这剧情和角色相差好大啊，但是似乎又有所联系。终于，禁不住好奇心的我人生第一次在B站充了一个月大会员。接下来几周里，我从第一季第二集开始按顺序接着看，欲罢不能，很快把前两季都认真看完了。由于之前看过免费的第三季第一集提到了dio的复活，又下决心把第三季看完。寒假时又把第四季看完，最终止步于画风过于奇特而剧情关系不大的第五季，没有把第五季继续看下去。</span></p><p><span>按顺序看完JOJO四季的我，感慨这是我从小至今看过最宏大最史诗的一部动漫，时间上从第一季的19世纪跨越到第四季的20世纪后期，空间上跨越大半个地球，第一季在英国，第二季在美国、意大利、德国等地，第三季更是从日本穿越欧亚大陆到埃及。剧情之绵长连续，有乔家血脉传承为基础。每一季的JOJO都有其独特的精彩和深刻内涵。</span></p><p><span>第一季是“血的命运”，讲述乔家最后一代真正的绅士乔纳森·乔斯达与迪奥·布兰多结下世仇的故事，前几集还是人与人的较量，后来自从dio戴上石鬼面变成吸血鬼后，第一季的故事从此变成人类与吸血鬼的对抗，也是光明与黑暗、绝对的正义与绝对的邪恶之间水火不容的对抗。其中最为经典的台词是“人类的赞歌就是勇气的赞歌”，配上</span><a href='http://music.163.com/song?id=29292542&amp;userid=314127171'><span>最终决战时的经典古典配乐</span></a><span>让人热血沸腾。但是剧情来到最后一集竟然来个大反转，仅剩头颅逃脱的dio在海船上劫持了大乔的身体，由此躲进其小弟准备好的棺材里沉入海底开始百年沉睡。</span></p><p><span>第二季是大乔的孙子二乔与石鬼面制造者——沉睡千年万年的三个远古人类柱之男对决的故事，主角战斗技能依然是波纹（其实就是气功），硬技能有限，那就靠智斗，因此剧情也是一波三折非常精彩。</span></p><p><span>第三季堪称日本版《西游记》，不过主角承太郎一行人的目的不是取经，而是与血脉宿敌dio决斗。主角团成为“星尘十字军”，他们一路向西去往埃及的路上真的就像《西游记》一般遇到千难万险，遇到的各种妖魔鬼怪，或者说替身使者，也如同《西游记》里一样各有特点而无重复，且能映射到现实世界中人性和自然界中对人类来说是“邪恶”的各种不同方面。</span></p><p><span>第四季的故事限定在杜王町这么一个小镇里，相比前三季没那么史诗般宏大，较为日常化，而这季也更贴近现实生活，当中的恶人角色并非如dio一般是纯粹的邪恶，而是还保留有人性。例如本季大boss吉良吉影，形象来源于现实中一个欧美男人，角色的特点是非常聪明却善于伪装自己，只想永远过着平静的生活，但是他的恋手癖和所犯下的诸多罪行注定让他要受到正义的审判。结局是他意外被一辆救护车碾过而结束生命，灵魂也被拉去异世界永不得脱。虽然不是受到人间的审判，但这也应该是最圆满的结局了，因为靠人间的力量恐怕永不能镇压住他。像吉良吉影这样犯了恐怖罪行还若无其事毫无羞耻心的人面兽心之衣冠禽兽，在日本或许真能找到不少现实案例。</span></p><p><span>JOJO第一次让我对日语原声配音的日本动漫建立起接受度，第一次欣赏到日语主题曲的热血，这将为后文的故事打下基础。</span></p><p>&nbsp;</p><h2 id='名侦探柯南'><span>《名侦探柯南》</span></h2><p><em><span>连载至今的童年回忆</span></em></p><p><img src="/img/conan.jpg" referrerpolicy="no-referrer"></p><p><span>2020年春季，由于疫情而在家上网课。到了五月份，偶然发现有几个高中同学的微信头像换成了柯南，并且时不时在朋友圈发关于看柯南的动态，此时的我已经快十年没看过柯南了，觉得《名侦探柯南》不过是小学时候的童年回忆，是一部有点恐怖的侦探动画片，为什么现在有些同学又看起来了呢？抱着好奇心在B站搜了下柯南，发现原来柯南刚在4月30日上线B站？而且中配和日配原版都有？前面建立了日语接受度而大会员尚未过期的我看了下当时的</span><a href='https://www.bilibili.com/bangumi/play/ep322874'><span>日配最新一集</span></a><span>，好家伙！都发展到一千多集了！画风怎么不是童年的样子，变得这么现代了？而且至今还没完结还在连载？！</span></p><p><span>于是我从第一集开始把网友所说的经典的、主线的、有新兰感情线的基本都看了一遍，短时间内复习了柯南早期剧情，也见证着画风的逐年变化，一直追到最新一集主线。然后又发现原来柯南还每年一部剧场版电影，我真是闻所未闻，大呼童年少年错亿！于是又挑了经典高分剧场版看了，又找资料补习“柯学”：</span><a href='https://www.bilibili.com/video/BV1uW411h7Tf'><span>【漫话家#13】柯南是如何被创作出来的！青山刚昌的成长之路</span></a><span>、</span><a href='https://www.bilibili.com/video/BV1WZ4y1A7b8'><span>【熟肉】ZIP青山刚昌访谈20210325【银色子弹】</span></a><span>、</span><a href='https://www.bilibili.com/video/BV12J411X7cD'><span>73分钟看完柯南所有剧情！史上最全时间线整理！</span></a><span>、</span><a href='https://www.zhihu.com/question/302887170/answer/925365134'><span>名侦探柯南里的BOSS乌丸莲耶是因为什么原因而建立了组织？</span></a><span>、</span><a href='https://www.zhihu.com/question/279890910/answer/810122057'><span>《名侦探柯南》按照主线时间线来讲，现在距离新一变成柯南过了多久？</span></a><span>，开始进行“童年少年补完计划”。另外还看完了</span><a href='https://www.bilibili.com/bangumi/play/ep322884'><span>《怪盗基德》老版TV</span></a><span>。</span></p><p><span>了解到柯南漫画于1994年开始连载，TV动画从1996年开播，之后每年做一部剧场版电影，另外还有好些B站没官方上线的各种OVA剧集等等，真是童年错亿啊。我在小学低年级时期在电视上看电视台反复播放的柯南动画片实际上是台配版，而且只有大约前100集左右，连基德和灰原哀出场都没到，而实际上怪盗基德所在的《魔术快斗》漫画比柯南更早，在1987年就发行了。</span></p><p><span>此时的我正沉浸在工藤新一和毛利兰的</span><a href='https://www.bilibili.com/video/BV1z741127wB'><span>情感线</span></a><span>中，当时与其看黑衣组织主线，不如看新兰更动人心弦。小学时候看不太懂新一变成柯南的情节，一直觉得柯南和新一是两个不同的人，也因为年龄小难以理解新兰情感，只是按当时自己年龄代入柯南里，以柯南视角觉得小兰就是个恐怖的大姐姐。如今自己作为大学生已到了比高中生新一还大的年龄，再来看《柯南》，就理解了他们如同牛郎织女，深情专一，但是因为变小成柯南这个设定，两人虽日夜相处却如同参商不能以本来面貌相见，让我当时久久意难平。</span></p><p><span>人间虽过了二十多年，柯南世界里却只设定过了几个月，而这也见证了时代的快速发展，最显著的就是通信工具的变化。从90年代的座机、拨号上网，到00年代的翻盖手机，再到10年代的智能手机。故事情节也从最初的昏黑阴暗到现在的明亮安宁。这使我对《柯南》创作的时代背景产生了好奇。</span></p><p><span>看了网上很多说法后大概意思是，《柯南》发行的20世纪90年代中期，日本的“泡沫经济”破灭后，暴露出越来越多社会问题，犯罪率上升，因此如前两百集里柯南世界所表现的景象，色调阴暗，气氛阴森恐怖。如今看来，色调问题首先应该是</span><a href='https://www.bilibili.com/video/BV124411s7YB'><span>手工作画、赛璐璐上色</span></a><span>的技术原因，然后是特意以阴暗色调烘托气氛。在《柯南》后来几百集以后，开始用电脑作画上色就感觉明亮得多了。个人觉得，早期的《柯南》动画正是这阴森恐怖的色调让童年的我想看又不敢看，与《哆啦A梦》一起组成了对日漫的独特的童年印象。因此如今当听到柯南</span><a href='http://music.163.com/song?id=847035&amp;userid=314127171'><span>第一首主题曲</span></a><span>和</span><a href='http://music.163.com/song?id=847037&amp;userid=314127171'><span>另一首插曲</span></a><span>时，便勾起了我的童年回忆，仿佛回到了七岁至十岁看《柯南》时无忧无虑的年纪。</span></p><p><span>但是，这个所谓的“泡沫经济”是怎么回事呢？这在我心里埋下了疑问的种子。</span></p><p>&nbsp;</p><h2 id='青山刚昌短篇集'><span>《青山刚昌短篇集》</span></h2><p><em><span>《柯南》作者早期作品</span></em></p><p><img src="/img/goshow.webp" referrerpolicy="no-referrer"></p><p><span>看了《柯南》，偶然发现B站还有</span><a href='https://www.bilibili.com/bangumi/play/ss36724'><span>《青山刚昌短篇集》</span></a><span>，于是顺便也看完了。短篇集是青山刚昌的早期漫画作品，在《柯南》大热后才在1999年将其动画化制作成OVA。刚开始我只是为了看里面有工藤新一父母出场的“柯南前传”，但发现另外四个小故事也很精彩，于是看完了，并且喜欢其</span><a href='http://music.163.com/song?id=659802&amp;userid=314127171'><span>主题曲</span></a><span>。从短篇集可以看出青山很早就擅长画这类少年恋爱喜剧，被网友评论为“宅男终极幻想”。其中一个故事《夏日的圣诞老人》的一个细节吸引了我的注意，毛利兰的声优 山崎和佳奈 所配音的女主角 安西明日香 是一名偶像歌手，年龄为17岁。这时我就疑惑了，为什么17岁少女这么年轻就可以出道做歌手了？至此为止对娱乐圈尚无了解的我对少女偶像这一现象感到很困惑。</span></p><p>&nbsp;</p><h2 id='仓木麻衣'><span>仓木麻衣</span></h2><p><em><span>“柯南歌姬 ” Kuraki Mai</span></em></p><p><img src="/img/mai.webp" referrerpolicy="no-referrer"></p><p><span>看完《柯南》的</span><a href='https://www.bilibili.com/bangumi/play/ep322826'><span>“恋红篇”</span></a><span>后，终于被新兰的“世纪之吻”甜到了，同时这几集贴合剧情的</span><a href='https://www.bilibili.com/video/BV1LE411Z7Xa?p=78'><span>片头曲</span></a><span>和</span><a href='https://www.bilibili.com/video/BV1LE411Z7Xa?p=188'><span>片尾曲</span></a><span>也让我继建立对JOJO的热血日语主题曲的接受度后，建立了对甜美风格日语主题曲的接受度，让我从音乐中真切感受到新兰一吻确定关系的爱情的激动，触动了我的心弦。另外，看完剧场版</span><a href='https://www.bilibili.com/bangumi/play/ss5156'><span>《迷宫的十字路口》</span></a><span>和</span><a href='https://www.bilibili.com/bangumi/play/ss24694'><span>《唐红的恋歌》</span></a><span>到片尾曲时，弹幕都说这两首</span><a href='https://www.bilibili.com/video/BV1LE411Z7Xa?p=221'><span>《Time after time～花舞う街で～》</span></a><span> </span><a href='https://www.bilibili.com/video/BV1LE411Z7Xa?p=235'><span>《渡月橋 ～君 想ふ～》</span></a><span>都是“柯南神曲”，同样让我感受到了新兰爱情那种少年心动的感觉（我还没谈过恋爱）。看的柯南越多，就发现越多仓木麻衣为《柯南》唱的片头片尾曲，被成为“柯南歌姬”。</span></p><p><span>因此，这是我人生第一次对一个女歌手引起兴趣。我个人的听歌偏好是相对被动的，从来不会主动去追赶潮流，更不会追星，引起我兴趣的歌一般都是来自于父母喜欢、学校广播经常在放、看影视作品的插曲或主题曲等等。在此之前，我欣赏作品从来多于欣赏歌手本人，所以追星是不可能追星的。但是，仓木麻衣的柯南系列作品里能感觉到十几岁青少年的青春悸动的情感，旋律较为优美欢快，加之仓木麻衣的颜值，最终引起了我的兴趣。</span></p><p><img src="/img/mai2.webp" referrerpolicy="no-referrer"></p><p><span>另外，这里或许也有语言的问题。我曾想过为什么有些人更喜欢听外语流行歌？例如英语、日语、韩语，现在我觉得首先是旋律好听，合他们的口味，然后是歌词的语言。以我个人感受来说，如果是国语歌和粤语歌，由于都是我平常说话交流用的母语，所以会自然非常在意听到的歌词，希望能全部清楚听懂，所以内心要求歌手能够发音标准，如果香港歌手唱塑料国语歌或者北方人唱塑料粤语歌，我都是会觉得别扭的。其次，由于是自己的母语，因此知道大部分汉字在普通话和粤语里的发音声调，如果一句歌词乃至整首歌的旋律和歌词本身的声调相差太大的话，会让人容易联想到另一个字词，从而在听众那里产生歧义。经典例子如《爸爸去哪儿》的“一生陪你看日出”一句初次听就很容易以为是“医生”。至于外语歌嘛，英语似乎没有普通话四声调或粤语九声调的严格限制，加之作为非母语的外语，自己听不懂也没关系，日语也是由于非母语的原因，反正听不懂，歌词意思看中文翻译就行了，此时歌手的人声就成为了我耳中的乐器之一，比起歌词内容，此时我可以更关心歌手本身的唱功。所以，这就是我认为有人觉得外语歌比国语歌好听的原因。顺便说句，有人觉得同一旋律下粤语版又比国语版好听，则应该是因为九声调比四声调的限制要少些，据说</span><a href='http://music.163.com/song?id=1366049975&amp;userid=314127171'><span>《数字人生》</span></a><span>可以体现这一点。</span></p><p><span>喜欢上仓木麻衣后，就会去B站搜索相关的现场版，想看看现场演绎如何，偶然发现有举办过</span><a href='https://www.bilibili.com/video/BV1Js41147t1'><span>流行音乐交响版演唱会</span></a><span>，则让我打开眼界，原来流行歌也可以用交响乐的形式演唱，而有不一样的韵味。为了仓木麻衣的柯南系列主题曲，我人生第一次在QQ音乐充了会员，下载了相关作品。</span></p><p><img src="/img/maicn.webp" referrerpolicy="no-referrer"></p><p><span>在B站搜麻衣时，也发现了她曾来过几次中国。</span></p><p>&nbsp;</p><h2 id='坂井泉水'><span>坂井泉水</span></h2><p><em><span>“最神秘歌姬 ” Sakai Izumi</span></em></p><p><img src="/img/zard.jpg" referrerpolicy="no-referrer"></p><p><span>看《柯南》的时候，注意到了另一位“柯南歌姬”，她在《柯南》里让我国90后00后们印象最深刻的作品就是</span><a href='https://www.bilibili.com/video/BV1LE411Z7Xa?p=8'><span>《转动命运之轮》</span></a><span>（完整版在QQ音乐需会员）。据网友们的印象，这首歌是他们家乡所在省份电视台播放《柯南》的唯一 一首主题曲，因此是他们对柯南的独家童年记忆。至于我嘛，我印象中只有第一首</span><a href='https://www.bilibili.com/video/BV1LE411Z7Xa?p=2'><span>《胸中动荡不安》</span></a><span>。但随着我此时看柯南越来越多，则愈发现更多坂井泉水的作品，如</span><a href='https://www.bilibili.com/video/BV1LE411Z7Xa?p=26'><span>《星之光芒》</span></a><span>、</span><a href='https://www.bilibili.com/video/BV1LE411Z7Xa?p=38'><span>《爱在黑暗中》</span></a><span>、剧场版的</span><a href='https://www.bilibili.com/video/BV1LE411Z7Xa?p=216'><span>《仿佛回到少女时代》</span></a><span>、</span><a href='https://www.bilibili.com/video/BV1LE411Z7Xa?p=223'><span>《宛如等待夏日的风帆》</span></a><span>、</span><a href='https://www.bilibili.com/video/BV1LE411Z7Xa?p=226'><span>《张开双翼》</span></a><span>······每一首都很好听。</span></p><p><span>在一次搜索B站仓木麻衣时，发现仓木麻衣曾和坂井泉水跨越时空“同台”共唱</span><a href='https://www.bilibili.com/video/BV1Xb411k7eS'><span>《負けないで》（不要认输）</span></a><span>！在视频里，坂井泉水早已去世，是用“高科技”将泉水还原在舞台上，由此看来泉水和麻衣是两个不同时代的“歌姬”。视频有网友评论说麻衣歌声太温柔，还是适合唱温柔的情歌，不如泉水有力量感。我看完视频也觉得相比泉水，麻衣属于甜美的类型，而泉水则更阳刚一些，让我更觉好奇了。在视频里的电视节目中，仓木麻衣表示坂井泉水是她的同一事务所（Being）的大前辈，而且泉水的一次</span><a href='https://www.bilibili.com/video/BV1V541137Uv'><span>游轮演唱会</span></a><span>麻衣就在台下做听众。在这场独特的演唱会中，我听到了《柯南》里从未出现的其它作品，但是每一首都很带感很好听，由此开始一发不可收拾地喜欢上坂井泉水了！为仓木麻衣充的会员，此时有了更大的价值，为了尽可能多地完整地了解坂井泉水，我直接下载了整个最多歌的专辑《ZARD Forever Best ~25th Anniversary~》。把这个专辑反复听了多遍后，觉得还听不够，再去别的专辑把没听过的基本都下载来慢慢品味。此处放免费的</span><a href='https://www.bilibili.com/video/BV1aJ411s7Nv?p=3'><span>MV合集</span></a><span>供欣赏。我开始大量听泉水的歌主要是在2020年秋季学期做模电实验期间，在宿舍插模电板子的时候觉得有些枯燥，于是把下载的整个专辑几十首歌按顺序播放，边听边插，提神而使我不会犯困，就这样泉水的歌陪伴了我整个学期插板子的时光。</span></p><p><span>把泉水的作品听了整整一年，我发现我是真的喜爱这些风格的作品。为了了解其身世经历，我主要看了两个视频：</span><a href='https://www.bilibili.com/video/BV1mx411J7xw'><span>【vivit】ZARD 坂井泉水 神秘的歌姬生涯（2017-08-15）【CNZARD】</span></a><span>、</span><a href='https://www.bilibili.com/video/BV1k5411u7Gd'><span>【重发】(中字)坂井泉水的新证言</span></a><span>。坂井泉水，原名蒲池幸子，1967年出生，2007年因意外逝世。大学毕业后曾在某不动产公司工作两年。1988年，蒲池幸子成为一名模特。1989年，参加东映卡拉OK皇后选拔获胜。1990年加入Being公司，以坂井泉水的艺名开始作为ZARD摇滚乐队的主唱。1991年，随乐队发行首张音乐专辑《Good-bye My Loneliness》正式出道。由此看，泉水是摇滚乐队ZARD的唯一主唱，乐队其他成员可能会换，但是泉水从未被别人代替过主唱的位置，而以ZARD名义发行的众多作品里似乎只有一首《果てしない夢を》是泉水的声音作配角的歌，其他全都是泉水主唱贯穿全曲，而其作品又绝大多数是泉水本人作词，因此坂井泉水就成了ZARD的灵魂，ZARD几乎成了泉水的代名词。1993年，ZARD发行由坂井泉水作词，织田哲郎作曲的单曲《不要认输》，在当时极大鼓舞了经济泡沫破裂后的日本民众，成为了他们心中的“第二国歌”。之后90年代末00年代初，泉水演唱的很多作品都被拿来作为动漫的片头曲或片尾曲，例如《龙珠》的《DAN DAN 心魅かれてく》（渐渐被你吸引）、《灌篮高手》的《my friend》、《中华一番》（中华小当家）的《息もできない》（无法呼吸）等等。成为了很多看过这些动漫的90后00后的童年回忆。2001年，坂井泉水被确诊患有子宫肌瘤、卵巢囊肿和子宫内膜异位症。2007年5月26日清晨，在庆应义塾大学医院接受治疗的坂井泉水完成了例行的散步活动后，在返回病室的途中，脚底打滑不慎从约3米高的斜坡失足跌落。虽被即时抢救，但头部受到严重撞击。5月27日下午因脑挫伤不治身亡，年仅40岁。</span></p><p><span>想了解更多她的故事，可参考</span><a href='https://www.bilibili.com/read/cv259465'><span>《一定不会忘记》</span></a><span>、</span><a href='https://www.bilibili.com/read/cv250900'><span>《ZARD&amp;坂井泉水的故事》</span></a><span>。</span></p><p><img src="/img/zard2.webp" referrerpolicy="no-referrer"></p><p><span>坂井泉水本身性格很内向，从小到大都认生，而作词、唱歌是她抒发内心的最好方式。她与其他女歌手很大的不同之处有很多，例如因为内向、不喜欢人群而极少参加电视节目、极少开现场演唱会（因此被称为“最神秘的歌姬”），现场演唱时眼神也总是躲避镜头。泉水无论是在平常生活工作、还是开演唱会、还是拍摄MV、还是拍摄专辑封面的照片，基本都是穿着平常生活的休闲便服，并且极少化明显的妆，我所见过的视频里她唯一 一次化浓妆是一次在欧美国家拍外景，被造型师化了欧美风格的黑色眼影，但网友都觉得远不如素颜好看。因此，在外貌形象上喜欢泉水就是最喜欢她那清新脱俗的自然美，基本素颜出镜，未经烫染的黑直长发自然披散或简单扎起，服装都是女生平常穿的休闲服。总而言之，如果用几个词语来形容她的形象，那就是清新、自然、娴静。</span></p><p><img src="/img/zard3.webp" referrerpolicy="no-referrer"></p><p><span>在听到泉水的歌之前，我有初中时听Beyond乐队的摇滚启蒙基础，高中时听了刘德华的</span><a href='http://music.163.com/song?id=110146&amp;userid=314127171'><span>《我恨我痴心》</span></a><span>的英语原版</span><a href='http://music.163.com/song?id=32157119&amp;userid=314127171'><span>《I hate myself for loving you》</span></a><span>第一次了解到女性也可以做摇滚乐队的主唱。但是坂井泉水又给了我不一样的惊喜。相比上面那首歌的原唱琼·杰特（Joan Jett），坂井泉水倒显得非常温柔。泉水作的词基本都是女性视角，尤其是恋爱中的少女或女青年。涉及的题材包括女青年视角下的：爱情、日常生活、人生命运等等，因此有网友曾经好奇为什么动漫的片头明明不是爱情主题，泉水唱的片头曲却是讲爱情。</span></p><p><img src="/img/zardlrc.png" referrerpolicy="no-referrer"></p><p><span>为ZARD作曲的人主要有织田哲郎、栗林诚一郎、大野爱果等等。在ZARD的作品中，曲调旋律如同歌词一般温柔、明快。至于泉水的声线、唱腔特点，则是以女生的高音为主，高亢、明亮，有种穿透灵魂的感觉。自己作词自己唱的泉水在歌词中倾注了真实的情感，演唱的歌温柔而有力量。即使我听不懂日语也能感受到泉水唱歌咬字清晰，歌声如泉水般清澈甘冽，毫不含糊，也没有各种花哨的技巧。旋律和歌词含义没有明显的国别特点，我感觉只有少许几首歌的旋律带有日本传统小调音乐的影子，其他大部分作品都是明朗欢快的，因此有种超越民族和国界的美。</span></p><p><span>坂井泉水综上所述给人们一种有如大姐姐般的亲切感，因此我国的粉丝们在评论里都称呼她为“姐姐”，与张国荣的“哥哥”称呼相对应。如果像搜索麻衣与中国的联系那样搜索泉水与中国，会发现她似乎从未来过中国，原因也容易猜测，泉水在日本都极少开演唱会、参加电视节目，那更没可能亲自来中国开拓她的海外市场。泉水带给中国的影响力主要是靠动漫主题曲，而这些动漫在中国热播时已是90年代末，看这些动画片的人大部分还是小孩子。当90后00后长大了，有意识地主动去用互联网搜索时，却发现泉水早已在07年去世了。当B站发展起来，用户增多，90后00后成为新一代网民主力军，在B站发现自己的“童年之声”是坂井泉水演唱时，时间已是10年代中后期。</span></p><p><span>喜欢坂井泉水，还有与我自身特点相关的缘故。疫情后回校上课，都提倡减少线下社交，加之大二实验繁多，插板子、写报告很耗时间，因此大二大部分时间我都是在宿舍里做这些事情，享受着这种远离社交的宁静和“孤独”。周末时在安静的宿舍边插板子边听她的歌，仿佛在听一个女孩在抒发她的心声。有时听到了昂扬的旋律、励志的歌词时，则仿佛是大姐姐在鼓励我不要怕插板子的繁琐和困难，从此插板子成为了快乐的事情。人生第一次，听到这么多女生视角的歌，在此之前我主要以 以Beyond为代表的男性视角 为本，而此时仿佛有机会充分了解女生的心理，让我感到很新奇。</span></p><p><span>此时那个疑问再次浮现，百科描述《不要认输》的创作背景和社会影响是：“1993年，日本正值泡沫景气爆破不久，并且进入了经济长期停滞的‘失去的十年’，民众承受的生活和心理压力比以前大很多，而在这时，《不要认输》的推出使得日本民众得到鼓舞，因此《不要认输》被誉为是‘失去的十年’的应援主题歌。”这么说90年代的日本经济不景气，那么在此之前的80年代又是怎样的光景呢？什么是“泡沫经济”？</span></p><p>&nbsp;</p><h2 id='bz'><span>B&#39;z</span></h2><p><em><span>亚洲殿堂级摇滚乐队</span></em></p><p><img src="/img/bz.webp" referrerpolicy="no-referrer"></p><p><span>《柯南》连载二十多年之久，成为了一大“日本流行音乐曲库”，其中既有坂井泉水、仓木麻衣、爱内里菜、宇德敬子、大黑摩季等女歌手，也有例如B&#39;z的男歌手代表。引起我兴趣的B&#39;z的作品主要是剧场版的片尾曲</span><a href='https://www.bilibili.com/video/BV1LE411Z7Xa?p=217'><span>《One》</span></a><span>、</span><a href='https://www.bilibili.com/video/BV1LE411Z7Xa?p=220'><span>《Everlasting》</span></a><span>、</span><a href='https://www.bilibili.com/video/BV1LE411Z7Xa?p=229'><span>《Don&#39;t wanna lie》</span></a><span>、</span><a href='https://www.bilibili.com/video/BV1LE411Z7Xa?p=234'><span>《（世界将染上你的颜色）》</span></a><span>。个人觉得，如果说泉水和麻衣代表了毛利兰的女生视角，那么B&#39;z就代表了工藤新一（柯南）的男生视角。</span></p><p><img src="/img/bz2.webp" referrerpolicy="no-referrer"></p><p><span>B&#39;z乐队是由吉他手松本孝弘、主唱稻叶浩志于1988年组成的二人男子摇滚乐队，也是亚洲唯一 一支进入Hollywood Rock Walk的殿堂级摇滚乐队。他们创造了日本音乐史的诸多记录。是世纪之交的日本乃至亚洲的摇滚顶流。记录列举部分如下。</span></p><p><img src="/img/bz3.png" referrerpolicy="no-referrer"></p><p><span>看过一个up主</span><a href='https://www.bilibili.com/video/BV13o4y1m7vR'><span>分享的看法</span></a><span>。结合他和我个人的观点，如果说ZARD是“温柔的摇滚”，那么B&#39;z就是真正的“硬摇滚”，与Beyond相同的类型，是阳刚、野性的美，充满能量。搜索B&#39;z的视频时，有条评论大意说“一定要看2003年的</span><a href='https://www.bilibili.com/video/BV1Vx411N7sa'><span>《台风15》</span></a><span>神现场！”。全场太长，我只听了前面几首，已感受到现场的高燃气氛。正所谓“让暴风雨来得更猛烈些吧！”，傍晚在台风天的风雨中，开万人露天摇滚演唱会，奔跑、咆哮、嘶吼、呐喊，这就是热血青年的浪漫之一吧。看这个视频时，正值2021年6月夏季期末，几乎天天下雨，窝在宿舍复习“快要发霉”的我看了这个同样下雨的演唱会如临现场，沉浸式体验，释放了考试的压力和下雨闷在宿舍的烦闷。成为了我今年独特的一段记忆。</span></p><hr /><div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+    <p align="left"><a href="/zh/fun-content.html">&lt;==总目录</a></p>
+    <p align="right"><a href="/zh/fun-b.html">下一篇：乙==&gt;</a></p>
+</div></div></div>
+</body>
+</html>
