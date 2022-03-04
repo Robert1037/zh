@@ -2,8 +2,7 @@
 layout: home
 ---
 
-<img src="/img/blogwall3.webp">
-<p><br></br></p>
+
 <script type="text/javascript">
     window.onload=function(){window.requestAnimationFrame(getDate)}
 function getDate(){
@@ -23,10 +22,11 @@ function getDate(){
     if(second<10) second="0"+second
     var week=new Array("星期日","星期一","星期二","星期三","星期四","星期五","星期六")
     var Tools=document.getElementById("Main")
-    var da="北京时间(UTC+8): "+year+"年"+month+"月"+days+"日 "+week[day]+" "+hour+":"+minute+":"+second
+    var da=year+"年"+month+"月"+days+"日 "+week[day]+" "+hour+":"+minute+":"+second
     Tools.innerHTML=da
 }
 </script>
 <div id="Main"></div>
-<p><br></br></p>
+<img src="/img/blogwall3.webp">
+<p>  </p>
 <h2>文章总数: {{ site.posts.size }}</h2>
