@@ -5,7 +5,7 @@ date: 2022-2-7
 tags: 歌单、J-Pop
 ---
 
-![](/img/crimson.webp)
+![](https://cdn.jsdelivr.net/gh/Robert1037/rsc/img/crimson.webp)
 
 相关文章：
 

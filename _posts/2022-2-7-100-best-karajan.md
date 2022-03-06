@@ -5,7 +5,7 @@ date: 2022-2-7
 tags: 歌单、Symphony
 ---
 
-![](/img/karajan.webp)
+![](https://cdn.jsdelivr.net/gh/Robert1037/rsc/img/karajan.webp)
 
 百度百科介绍：<a href="https://baike.baidu.com/item/%E8%B5%AB%E4%BC%AF%E7%89%B9%C2%B7%E5%86%AF%C2%B7%E5%8D%A1%E6%8B%89%E6%89%AC" target="_blank">赫伯特·冯·卡拉扬</a>
 
